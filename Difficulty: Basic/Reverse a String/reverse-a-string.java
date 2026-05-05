@@ -3,10 +3,18 @@
 class Solution {
     public static String reverseString(String s) {
         // code here
-        StringBuilder sb=new StringBuilder();
-        for(int i=s.length()-1;i>=0;i--){
-            sb.append(s.charAt(i));
+        char arr[]=s.toCharArray();
+        int left=0;
+        int right=s.length()-1;
+        
+        while(left<right){
+            char temp=arr[left];
+            arr[left]=arr[right];
+            arr[right]=temp;
+            
+            left++;
+            right--;
         }
-        return sb.toString();
+        return new String(arr);
     }
 }
