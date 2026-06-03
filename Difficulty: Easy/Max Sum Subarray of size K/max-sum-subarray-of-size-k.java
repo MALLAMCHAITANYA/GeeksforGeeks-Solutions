@@ -5,18 +5,10 @@ class Solution {
         for(int i=0;i<k;i++){
             sum+=arr[i];
         }
-        
-        int startIndex=0;
-        int endIndex=k;
         int maxSum=sum;
-        
-        while(endIndex<arr.length){
-            sum-=arr[startIndex];
-            startIndex++;
-            
-            sum+=arr[endIndex];
-            endIndex++;
-            
+        for(int i=k;i<arr.length;i++){
+            sum-=arr[i-k];
+            sum+=arr[i];
             maxSum=Math.max(maxSum,sum);
         }
         return maxSum;
